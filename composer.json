@@ -18,7 +18,7 @@
     "require": {
         "php":                      ">=8.1",
         "symfony/framework-bundle": "^5.4|^6.0|^7.0|^8.0",
-        "knplabs/knp-snappy":       "^1.5.1"
+        "knplabs/knp-snappy":       "dev-srt-symfony-8"
     },
     "autoload": {
         "psr-4": {
@@ -33,5 +33,11 @@
     "require-dev": {
         "phpunit/phpunit": "^8.5",
         "symfony/yaml": "^5.4|^6.0|^7.0|^8.0"
+    },
+    "repositories": {
+        "repo-knp-snappy": {
+            "type": "vcs",
+            "url": "git@github.com:Chris53897/snappy.git"
+        }
     }
 }
