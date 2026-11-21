@@ -9,7 +9,7 @@ jobs:
         runs-on: ubuntu-22.04
         steps:
             - name: Checkout
-              uses: actions/checkout@v4
+              uses: actions/checkout@v7
             - name: Setup PHP
               uses: shivammathur/setup-php@v2
             - name: Validate composer.json
@@ -56,9 +56,9 @@ jobs:
         name: PHP ${{ matrix.php }} tests (${{ matrix.description }})
         steps:
             - name: Checkout
-              uses: actions/checkout@v4
+              uses: actions/checkout@v7
             - name: Cache
-              uses: actions/cache@v4
+              uses: actions/cache@v6
               with:
                   path: ~/.composer/cache/files
                   key: composer-${{ matrix.php }}-${{ matrix.symfony }}-${{ matrix.composer_option }}
@@ -73,5 +73,5 @@ jobs:
                   composer config minimum-stability dev
                   composer config prefer-stable true
               if: matrix.dev
-            - run: composer update --prefer-dist --no-interaction --no-progress --ansi ${{ matrix.composer_option }}
+            - run: composer update --prefer-dist --no-interaction --no-progress --no-security-blocking --ansi ${{ matrix.composer_option }}
             - run: vendor/bin/phpunit
